@@ -1,0 +1,16 @@
+window_sizes 1800 910 450 1345 760 104
+
+diagrams
+  active  classdiagram_ref 128130 // Change
+    1076 726 100 A4 0 0
+end
+show_stereotypes
+selected attribute_ref 128898 // Version
+open
+  class_ref 128130 // Categorie
+  class_ref 128258 // Change
+  class_ref 128770 // Language
+  class_ref 129154 // SearchMode
+  class_ref 129538 // Powershell
+end
+end

@@ -1,0 +1,19 @@
+Quoi définir.
+
+Quoi chercher.
+
+Comment chercher.
+
+
+
+
+
+Cmdlet.Bug
+      .params=$null
+
+Cmdlet.$Null
+      .params=@(Nom=cause)
+
+Cmdlet.Bug
+      .params=@(P1=Fix)
+	      @(P2=Breaking change)
