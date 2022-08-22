@@ -5,12 +5,16 @@ diagrams
     1076 726 100 A4 0 0
 end
 show_stereotypes
-selected attribute_ref 128898 // Version
+selected attribute_ref 135810 // Nom
 open
   class_ref 128130 // Categorie
   class_ref 128258 // Change
+  class_ref 128514 // Cmdlet
+  class_ref 128642 // Parameter
   class_ref 128770 // Language
+  class_ref 129026 // Product
   class_ref 129154 // SearchMode
   class_ref 129538 // Powershell
+  class_ref 142594 // Target
 end
 end

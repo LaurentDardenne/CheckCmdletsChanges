@@ -1,7 +1,7 @@
-format 221
+format 224
 "cmdletChange"
-  revision 2
-  modified_by 2 "Laurent"
+  revision 3
+  modified_by 2 "1801106"
 
 
   
@@ -129,6 +129,10 @@ ${docstring}${members}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      classrelation 128130 // <composition>
+	relation_ref 128002 // <composition>
+      end
     end
 
     class 128386 "Reason"
@@ -157,6 +161,31 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+      ncouples 1
+      key "Nom" value ""
+      classrelation 128514 // <composition>
+	relation 128386 *---
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 128514 // <composition>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 128642 // <composition>
+      end
+
+      attribute 135682 "Nom"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
 
     class 128642 "Parameter"
@@ -171,6 +200,21 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+      classrelation 128642 // <composition>
+	relation_ref 128386 // <composition>
+      end
+
+      attribute 135810 "Nom"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
 
     class 128770 "Language"
@@ -185,17 +229,6 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 128898 "Version"
-	private explicit_type ""
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl "${comment}${self}${name} = ${value}
-"
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
     end
 
     class 128898 "Version"
@@ -224,6 +257,18 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+      attribute 135554 "version"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Version de PS"
+      end
     end
 
     class 129154 "SearchMode"
@@ -277,6 +322,9 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "Nom de fichier ( numéro de ligne  si possible)
+change concerné
+Raison de l'ajout de cette ligne de rapport"
     end
 
     class 129410 "Search"
@@ -291,6 +339,8 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "Recherche : regex ( multi langage ps, C#,..)
+Analyse du code : AST ( version de l'AST à utiliser)"
     end
 
     class 129538 "Powershell"
@@ -305,6 +355,9 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "Un change peut concerner un cmdlet d'un produit pour une version de Powershell.
+
+cf SCCM  PS v5.1 et PS Core"
       attribute 128386 "Version"
 	private explicit_type ""
 	cpp_decl ""
@@ -318,7 +371,82 @@ ${docstring}${members}
       end
     end
 
-    class 136066 "CodeSource"
+    class 136066 "FichierSource"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Un fichier ps1, ou cs ou yml, ..."
+      classrelation 128002 // <composition>
+	relation 128002 *---
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 128002 // <composition>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 128130 // <composition>
+      end
+    end
+
+    class 142594 "Target"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Pour version de Powershell Cible :
+soit un cmdlet
+soit un paramètre de cmdlet
+soit une instruction du langage ( PS Core v6.0 et > )
+autre chose ( ex sccm change : Add PSModulepath)
+
+Il peut juste être une info, ex  bug pas corrigé.
+
+Comment retrouver la cible ?"
+      classrelation 128258 // <unidirectional association>
+	relation 128130 --->
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 128258 // <unidirectional association>
+	  b parent class_ref 128514 // Cmdlet
+      end
+
+      classrelation 128386 // <unidirectional association>
+	relation 128258 --->
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 128386 // <unidirectional association>
+	  b parent class_ref 128770 // Language
+      end
+
+      classrelation 128770 // <unidirectional association>
+	relation 128514 --->
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 128770 // <unidirectional association>
+	  b parent class_ref 142722 // Alias
+      end
+    end
+
+    class 142722 "Alias"
       visibility package 
       cpp_decl ""
       java_decl ""
