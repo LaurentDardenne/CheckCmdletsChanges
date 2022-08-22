@@ -156,7 +156,6 @@ Préconiser d'utiliser une assertion pour vérifier certains bug
 }
 
 
-PS tags
 $tags=gh api  -H "Accept: application/vnd.github+json" /repos/PowerShell/PowerShell/tags --paginate --jq '.[] |."name"'
 $R=$tags |Where-object {$_ -match '^v'}
 $List=$r|% { gh api -H "Accept: application/vnd.github+json" /repos/PowerShell/PowerShell/releases/tags/$_}|convertfrom-json
