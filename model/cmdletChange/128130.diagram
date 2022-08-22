@@ -1,16 +1,16 @@
 format 224
 
-classcanvas 128002 class_ref 128130 // Categorie
+classcanvas 128002 class_ref 128130 // Severity
   classdiagramsettings member_max_width 0 end
-  xyzwh 292 11 2000 67 53
+  xyzwh 167 199 2000 67 81
 end
-classcanvas 128130 class_ref 128258 // Change
+classcanvas 128130 class_ref 128258 // ReleaseNote
   classdiagramsettings member_max_width 0 end
-  xyzwh 294 131 2000 65 65
+  xyzwh 294 131 2000 81 65
 end
-classcanvas 128258 class_ref 128386 // Reason
+classcanvas 128258 class_ref 128386 // ChangeType
   classdiagramsettings member_max_width 0 end
-  xyzwh 26 134 2000 55 53
+  xyzwh 46 251 2000 91 129
 end
 classcanvas 128386 class_ref 128514 // Cmdlet
   classdiagramsettings member_max_width 0 end
@@ -24,40 +24,36 @@ classcanvas 128642 class_ref 128770 // Language
   classdiagramsettings member_max_width 0 end
   xyzwh 87 490 2000 83 49
 end
-note 128770 "Posséde"
-  xyzwh 285 79 2000 69 35
+note 128770 "S'applique à"
+  xyzwh 292 328 2000 89 35
 note 128898 "Concerne"
-  xyzwh 86 139 2000 67 35
+  xyzwh 188 115 2000 67 35
 classcanvas 129538 class_ref 129026 // Product
   classdiagramsettings member_max_width 0 end
-  xyzwh 163 139 2000 95 49
+  xyzwh 66 137 2000 95 49
 end
 note 129666 "Concerne (1,n)"
-  xyzwh 272.5 208.5 2000 113 35
+  xyzwh 363.5 241.5 2000 113 35
 classcanvas 129794 class_ref 129154 // SearchMode
   classdiagramsettings member_max_width 0 end
-  xyz 733 120 2000
+  xyz 743 212 2000
 end
 classcanvas 129922 class_ref 129282 // Report
   classdiagramsettings member_max_width 0 end
-  xyzwh 571 264 2000 93 43
+  xyzwh 631 253 2000 93 43
 end
 note 130050 "Construit"
-  xyzwh 583 204 2000 67 35
+  xyzwh 634 204 2000 67 35
 classcanvas 130178 class_ref 129410 // Search
   classdiagramsettings member_max_width 0 end
-  xyzwh 571 139 2000 85 45
+  xyzwh 626 137 2000 85 45
 end
 classcanvas 130434 class_ref 129538 // Powershell
   classdiagramsettings member_max_width 0 end
-  xyz 288 284 2000
+  xyz 488 236 2000
 end
 note 130690 "Une Release Note liste les modifications et les évolutions apportées à une version d'un produit."
   xyzwh 11 6 2000 261 49
-note 131074 "Un code à analyser peut utiliser des cmdlets de plusieurs produit.
-
-Le code peut aussi être multiplateforme..."
-  xyzwh 569 11 2000 251 75
 note 131202 "Un change d'un cmdlet peut concerner
 
 - une correction de bug pour Param1 et
@@ -68,14 +64,10 @@ Selon le code utilisé le rapport différe"
   xyzwh 424 563 2000 253 119
 classcanvas 131330 class_ref 136066 // FichierSource
   classdiagramsettings member_max_width 0 end
-  xyz 425 143 2000
+  xyz 624 12 2000
 end
-note 131458 "Concerne (1,n)"
-  xyzwh 415 194 2000 105 35
-note 131586 "Une analyse génère un rapport exploitable.
-
-Analyse une version,toutes ou 6.1 et supérieure"
-  xyzwh 359 38 2000 209 95
+note 131458 "Cible (1,n)"
+  xyzwh 622 67 2000 105 35
 classcanvas 131842 class_ref 142594 // Target
   classdiagramsettings member_max_width 0 end
   xyz 296 399 2000
@@ -84,11 +76,12 @@ classcanvas 132610 class_ref 142722 // Alias
   classdiagramsettings member_max_width 0 end
   xyz 415 478 2000
 end
-relationcanvas 131714 relation_ref 128002 // <composition>
-  from ref 131330 z 2001 to ref 128130
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+classcanvas 133634 class_ref 149250 // Change
+  classdiagramsettings member_max_width 0 end
+  xyz 302 242 2000
 end
+note 134402 "'Changed' peut avoir + significations : ex bugfix "
+  xyzwh 15.5 383.5 2000 209 49
 relationcanvas 131970 relation_ref 128130 // <unidirectional association>
   from ref 131842 z 2001 to point 319 459
   line 132738 z 2001 to ref 128386
@@ -107,6 +100,31 @@ relationcanvas 132354 relation_ref 128386 // <composition>
 end
 relationcanvas 132866 relation_ref 128514 // <unidirectional association>
   from ref 131842 z 2001 to ref 132610
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133122 relation_ref 135170 // <association>
+  from ref 128130 z 2001 to ref 129538
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133762 relation_ref 135298 // <composition>
+  from ref 128130 z 2001 to ref 133634
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133890 relation_ref 135426 // <association>
+  from ref 133634 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134018 relation_ref 135554 // <association>
+  from ref 130178 z 2001 to ref 129794
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134274 relation_ref 135810 // <association>
+  from ref 128002 z 2001 to ref 133634
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

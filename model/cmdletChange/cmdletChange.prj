@@ -1,6 +1,6 @@
 format 224
 "cmdletChange"
-  revision 3
+  revision 4
   modified_by 2 "1801106"
 
 
@@ -65,11 +65,11 @@ format 224
     activitydiagramsettings
      end
     classdiagram 128130 "Change"
-      classdiagramsettings member_max_width 0 end
+      classdiagramsettings draw_all_relations no member_max_width 0 end
       size A4
     end
 
-    class 128130 "Categorie"
+    class 128130 "Severity"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -81,7 +81,53 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 128642 "Importance"
+      comment "'Error',
+'Warning',
+'Information'
+
+Voir PSSA
+"
+      classrelation 136706 // <association>
+	relation_ref 135682 // <association>
+      end
+
+      classrelation 136834 // <association>
+	relation 135810 ----
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136834 // <association>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136962 // <association>
+      end
+
+      attribute 143234 "Error"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 143362 "Warning"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 143490 "Information"
 	private explicit_type ""
 	cpp_decl ""
 	java_decl ""
@@ -94,7 +140,7 @@ ${docstring}${members}
       end
     end
 
-    class 128258 "Change"
+    class 128258 "ReleaseNote"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -133,9 +179,45 @@ ${docstring}${members}
       classrelation 128130 // <composition>
 	relation_ref 128002 // <composition>
       end
+
+      classrelation 135298 // <composition>
+	relation 135042 *---
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 135298 // <composition>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 135426 // <composition>
+      end
+
+      classrelation 135554 // <association>
+	relation 135170 ----
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 135554 // <association>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 135682 // <association>
+      end
+
+      classrelation 135810 // <composition>
+	relation 135298 *---
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 135810 // <composition>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${type}()
+"
+	    classrelation_ref 135938 // <composition>
+      end
     end
 
-    class 128386 "Reason"
+    class 128386 "ChangeType"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -147,6 +229,98 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "Type de change"
+      classrelation 135426 // <composition>
+	relation_ref 135042 // <composition>
+      end
+
+      classrelation 136194 // <association>
+	relation_ref 135426 // <association>
+      end
+
+      classrelation 136578 // <association>
+	relation 135682 ----
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136578 // <association>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136706 // <association>
+      end
+
+      attribute 142338 "Removed"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 142466 "Deprecated"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 142594 "UnResolvedBug"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 142722 "Changed"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 142850 "BreakingChange"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 143618 "Unsupported"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
 
     class 128514 "Cmdlet"
@@ -269,6 +443,10 @@ ${docstring}${members}
 	MysqlColumn
 	comment "Version de PS"
       end
+
+      classrelation 135682 // <association>
+	relation_ref 135170 // <association>
+      end
     end
 
     class 129154 "SearchMode"
@@ -308,6 +486,10 @@ ${docstring}${members}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      classrelation 136450 // <association>
+	relation_ref 135554 // <association>
+      end
     end
 
     class 129282 "Report"
@@ -339,8 +521,22 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
-      comment "Recherche : regex ( multi langage ps, C#,..)
+      comment "Une analyse génère un rapport exploitable.
+On analyse une version,toutes ou 6.1 et supérieure
+
+Recherche : regex ( multi langage ps, C#,..)
 Analyse du code : AST ( version de l'AST à utiliser)"
+      classrelation 136322 // <association>
+	relation 135554 ----
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136322 // <association>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136450 // <association>
+      end
     end
 
     class 129538 "Powershell"
@@ -383,7 +579,10 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
-      comment "Un fichier ps1, ou cs ou yml, ..."
+      comment "Un fichier ps1, ou cs ou yml, ...
+Un code à analyser peut utiliser des cmdlets de plusieurs produit.
+
+Le code peut aussi être multiplateforme..."
       classrelation 128002 // <composition>
 	relation 128002 *---
 	  a role_name "" private
@@ -458,6 +657,63 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+    end
+
+    class 149250 "Change"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 135938 // <composition>
+	relation_ref 135298 // <composition>
+      end
+
+      classrelation 136066 // <association>
+	relation 135426 ----
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136066 // <association>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 136194 // <association>
+      end
+
+      attribute 142978 "Type"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 136962 // <association>
+	relation_ref 135810 // <association>
+      end
+
+      attribute 143106 "Severity"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
     end
   end
 end
