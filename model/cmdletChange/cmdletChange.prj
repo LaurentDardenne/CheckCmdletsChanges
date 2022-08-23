@@ -389,6 +389,18 @@ ${docstring}${members}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      classrelation 137090 // <association>
+	relation 135938 ----
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 137090 // <association>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 137218 // <association>
+      end
     end
 
     class 128770 "Language"
@@ -713,6 +725,35 @@ ${docstring}${members}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+    end
+
+    class 149378 "Reason"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Delete : error
+Add :info
+Rename: error
+Deprecated,
+TypeChange,
+DefaultValue,
+ChangeValue,
+Position,
+Mandatory,
+Optionnal,
+BugFix,
+RemoveParameterSet."
+      classrelation 137218 // <association>
+	relation_ref 135938 // <association>
       end
     end
   end

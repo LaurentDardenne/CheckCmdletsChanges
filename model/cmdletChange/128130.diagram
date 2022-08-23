@@ -32,8 +32,10 @@ classcanvas 129538 class_ref 129026 // Product
   classdiagramsettings member_max_width 0 end
   xyzwh 66 137 2000 95 49
 end
-note 129666 "Concerne (1,n)"
-  xyzwh 363.5 241.5 2000 113 35
+note 129666 "Concerne (1,n)
+
+OS spécificités ?"
+  xyzwh 364.5 240.5 2000 113 65
 classcanvas 129794 class_ref 129154 // SearchMode
   classdiagramsettings member_max_width 0 end
   xyz 743 212 2000
@@ -61,7 +63,7 @@ note 131202 "Un change d'un cmdlet peut concerner
 - un breaking change pour le Param2
 
 Selon le code utilisé le rapport différe"
-  xyzwh 424 563 2000 253 119
+  xyzwh 523 370 2000 253 119
 classcanvas 131330 class_ref 136066 // FichierSource
   classdiagramsettings member_max_width 0 end
   xyz 624 12 2000
@@ -82,6 +84,10 @@ classcanvas 133634 class_ref 149250 // Change
 end
 note 134402 "'Changed' peut avoir + significations : ex bugfix "
   xyzwh 15.5 383.5 2000 209 49
+classcanvas 134530 class_ref 149378 // Reason
+  classdiagramsettings member_max_width 0 end
+  xyz 431 603 2000
+end
 relationcanvas 131970 relation_ref 128130 // <unidirectional association>
   from ref 131842 z 2001 to point 319 459
   line 132738 z 2001 to ref 128386
@@ -125,6 +131,11 @@ relationcanvas 134018 relation_ref 135554 // <association>
 end
 relationcanvas 134274 relation_ref 135810 // <association>
   from ref 128002 z 2001 to ref 133634
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134658 relation_ref 135938 // <association>
+  from ref 128514 z 2001 to ref 134530
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

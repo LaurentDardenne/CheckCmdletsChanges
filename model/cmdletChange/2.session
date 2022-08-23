@@ -1,14 +1,15 @@
-window_sizes 1800 910 450 1345 760 104
+window_sizes 1800 910 450 1345 735 129
 
 diagrams
   active  classdiagram_ref 128130 // Change
-    1076 726 100 A4 0 0
+    1345 735 100 A4 24 0
 end
 show_stereotypes
-selected attribute_ref 135810 // Nom
+selected attribute_ref 143618 // Unsupported
 open
-  class_ref 128130 // Categorie
-  class_ref 128258 // Change
+  class_ref 128130 // Severity
+  class_ref 128258 // ReleaseNote
+  class_ref 128386 // ChangeType
   class_ref 128514 // Cmdlet
   class_ref 128642 // Parameter
   class_ref 128770 // Language
@@ -16,5 +17,6 @@ open
   class_ref 129154 // SearchMode
   class_ref 129538 // Powershell
   class_ref 142594 // Target
+  class_ref 149250 // Change
 end
 end
