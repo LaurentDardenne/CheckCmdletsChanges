@@ -1,4 +1,6 @@
-﻿
+﻿#TODO : https://docs.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.2&viewFallbackFrom=powershell-7.1
+
+
 Function Get-AST {
 #from http://becomelotr.wordpress.com/2011/12/19/powershell-vnext-ast/
 <#
