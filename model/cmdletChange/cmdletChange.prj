@@ -1,6 +1,6 @@
 format 224
 "cmdletChange"
-  revision 4
+  revision 5
   modified_by 2 "1801106"
 
 
@@ -44,6 +44,8 @@ format 224
 
   mark_for_import
   
+  ncouples 1
+  key "html dir" value "C:\\temp\\doc/"
   classview 128130 "Quoi"
     
     classdiagramsettings member_max_width 0 end
@@ -64,6 +66,7 @@ format 224
     
     activitydiagramsettings
      end
+    associated_deployment_view deploymentview_ref 134530 // Quoi
     classdiagram 128130 "Change"
       classdiagramsettings draw_all_relations no member_max_width 0 end
       size A4
@@ -220,7 +223,9 @@ ${docstring}${members}
     class 128386 "ChangeType"
       visibility package 
       cpp_decl ""
-      java_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
       php_decl ""
       python_2_2 python_decl "class ${name}${inherit}:
 ${docstring}${members}
@@ -458,6 +463,10 @@ ${docstring}${members}
 
       classrelation 135682 // <association>
 	relation_ref 135170 // <association>
+      end
+
+      classrelation 143874 // <association>
+	relation_ref 142466 // <association>
       end
     end
 
@@ -726,6 +735,19 @@ ${docstring}${members}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      attribute 150146 "Description"
+	public explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Court texte détaillant le change"
+      end
     end
 
     class 149378 "Reason"
@@ -754,6 +776,53 @@ BugFix,
 RemoveParameterSet."
       classrelation 137218 // <association>
 	relation_ref 135938 // <association>
+      end
+    end
+
+    class 155906 "Details"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Contient des détails de la release spécifique au produit :
+    LibraryChangesForVersion='2107'
+    Url='https://docs.microsoft.com/en-us/powershell/sccm/2107-release-notes?view=sccm-ps'"
+      classrelation 143746 // <association>
+	relation 142466 ----
+	  a role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 143746 // <association>
+	  b role_name "" private
+	    python "${comment}${self}${name} = ${value}
+"
+	    classrelation_ref 143874 // <association>
+      end
+    end
+  end
+
+  deploymentview 134530 "Quoi"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 134530 "ChangeType"
+      stereotype "source"
+      java_src "${comment}
+${package}
+${imports}
+${definition}"
+      python_src "${comment}
+${import}
+${definition}"
+      associated_elems
+	class_ref 128386 // ChangeType
       end
     end
   end

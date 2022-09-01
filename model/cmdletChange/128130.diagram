@@ -88,6 +88,10 @@ classcanvas 134530 class_ref 149378 // Reason
   classdiagramsettings member_max_width 0 end
   xyz 431 603 2000
 end
+classcanvas 134786 class_ref 155906 // Details
+  classdiagramsettings member_max_width 0 end
+  xyz 92 71 2000
+end
 relationcanvas 131970 relation_ref 128130 // <unidirectional association>
   from ref 131842 z 2001 to point 319 459
   line 132738 z 2001 to ref 128386
@@ -136,6 +140,11 @@ relationcanvas 134274 relation_ref 135810 // <association>
 end
 relationcanvas 134658 relation_ref 135938 // <association>
   from ref 128514 z 2001 to ref 134530
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134914 relation_ref 142466 // <association>
+  from ref 134786 z 2001 to ref 129538
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
