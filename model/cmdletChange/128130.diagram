@@ -52,7 +52,7 @@ classcanvas 130178 class_ref 129410 // Search
 end
 classcanvas 130434 class_ref 129538 // Powershell
   classdiagramsettings member_max_width 0 end
-  xyz 488 236 2000
+  xyz 411 394 2000
 end
 note 130690 "Une Release Note liste les modifications et les évolutions apportées à une version d'un produit."
   xyzwh 11 6 2000 261 49

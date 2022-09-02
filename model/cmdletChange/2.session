@@ -2,10 +2,10 @@ window_sizes 1800 910 450 1345 735 129
 
 diagrams
   active  classdiagram_ref 128130 // Change
-    1345 735 100 A4 0 0
+    1345 735 100 A4 107 0
 end
 show_stereotypes
-selected attribute_ref 150146 // Description
+selected attribute_ref 156674 // UrlIssue
 open
   class_ref 128130 // Severity
   class_ref 128258 // ReleaseNote

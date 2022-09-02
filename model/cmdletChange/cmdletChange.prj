@@ -1,6 +1,6 @@
 format 224
 "cmdletChange"
-  revision 5
+  revision 6
   modified_by 2 "1801106"
 
 
@@ -747,6 +747,20 @@ ${docstring}${members}
 	mysql_decl ""
 	MysqlColumn
 	comment "Court texte détaillant le change"
+      end
+
+      attribute 156674 "UrlIssue"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl "${comment}${self}${name} = ${value}
+"
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Example: Set working directory to current directory in Start-Job (#10920) 
+from https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.2"
       end
     end
 
