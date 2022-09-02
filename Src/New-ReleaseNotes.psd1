@@ -5,6 +5,7 @@ https://github.com/ltrzesniewski/dotnet-runtime/blob/master/docs/coding-guidelin
 
 voir https://devblogs.microsoft.com/powershell/using-psscriptanalyzer-to-check-powershell-version-compatibility/
 
+
  Get-ASTCommand : retrouve toutes les commandes et filtre celles que l'on recherche, sinon chaque recherche de noeud AST va tous les tester.
 On peut vouloir tout récupérer et faire produit par produit si un script utilise 2 ou + produits (SCCM et Teams par exemple).
 recherche de paramètre, dépend de l'écriture, ex splatting
